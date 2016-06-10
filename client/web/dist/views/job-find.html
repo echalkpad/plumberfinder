@@ -1,0 +1,28 @@
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a href="#">Home</a></li>
+                   <li class="active">Find a job</li>
+               </ul>
+            </div>
+            <div class="col-xs-12">
+               <h3>Find a job</h3>
+               <hr>
+            </div>
+        </div>
+        <div class="row row-content">
+            <div class="col-xs-12">
+                <ul class="list-unstyled">
+                    <li ng-repeat="job in jobs | orderBy:'-createdAt'">
+                    	<h3>{{job.name}}</h3>
+                    	<h4><a ui-sref="app.client({id: job.clientId})">{{job.client.firstname}} {{job.client.lastname}}</a> {{job.createdAt | date:'MMM. dd, yyyy H:m'}}</h4>
+                    	<p>{{job.description}}</p>
+                    	<p>
+                    	<button class="btn btn-success btn-sm" ng-if="!job.contractorId" ng-click="contactJob(job.id)">Contact</button>
+                    	</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>

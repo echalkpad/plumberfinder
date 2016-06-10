@@ -1,0 +1,53 @@
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a href="#">Home</a></li>
+                   <li class="active">Register Contractor</li>
+               </ul>
+            </div>
+        </div>
+        <div class="row row-content">
+            <div class="col-xs-12">
+                <h1 class="text-center">Create a contractor account</h1>
+                <p class="text-center">OR <a ui-sref="app.registerClient">Sign up as a client</a></p>           
+                <p class="text-center">
+                    <img src="images/contractor.png" >
+                </p>
+            </div>
+        </div>
+        <div class="row row-content">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <form name="registerForm" ng-submit="doRegister()">
+                <div class="form-group">
+                    <label class="sr-only" for="username">Email</label>
+                    <input type="text" class="form-control input-sm" id="username" placeholder="Email" ng-model="registration.username" required>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="password">Password</label>
+                    <input type="password" class="form-control input-sm" id="password" placeholder="Password" ng-model="registration.password" required>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="firstname">First Name</label>
+                    <input type="text" class="form-control input-sm" id="firstname" placeholder="First Name" ng-model="registration.firstname" required>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="lastname">Last Name</label>
+                    <input type="text" class="form-control input-sm" id="lastname" placeholder="Last Name" ng-model="registration.lastname" required>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="phone">Phone</label>
+                    <input type="text" class="form-control input-sm" id="phone" placeholder="Phone" ng-model="registration.phone" required>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="registration.rememberMe"> Remember me
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-info btn-sm" ng-disabled="registerForm.$invalid">Register</button>
+            </form>
+
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,53 @@
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" ui-sref="app">
+                    <span><img src="images/logo.png" height=24 ></span>
+                    PlumberFinder
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li ng-if="!loggedIn" ng-class="{active: stateis('app.infoClient')}"><a ui-sref="app.infoClient">
+                        <span class="glyphicon glyphicon-info-sign"
+                         aria-hidden="true"></span> Client</a></li>
+                    <li ng-if="!loggedIn" ng-class="{active: stateis('app.infoContractor')}"><a ui-sref="app.infoContractor">
+                        <span class="glyphicon glyphicon-info-sign"
+                         aria-hidden="true"></span> Contractor</a></li>
+                    <li ng-if="isClientType()"><a ng-click="createJob()">
+                        <span class="glyphicon glyphicon-plus-sign"
+                         aria-hidden="true"></span> Create a job</a></li>
+                    <li ng-if="isContractorType()" ng-class="{active: stateis('app.findJob')}"><a ui-sref="app.findJob">
+                        <span class="glyphicon glyphicon-search"
+                         aria-hidden="true"></span> Find a job</a></li>
+                    <li ng-if="isClientType() || isContractorType()" ng-class="{active: stateis('app.myJobs({id: userId, type: userType})')}"><a ui-sref="app.myJobs({id: userId, type: userType})">
+                        <span class="glyphicon glyphicon-list-alt"
+                         aria-hidden="true"></span> Jobs</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-if="!loggedIn"><a ui-sref="app.userTypeLogin">
+                    <span class="glyphicon glyphicon-log-in"></span> Login</a>
+                    </li>
+                    <li ng-if="!loggedIn"><a ui-sref="app.userTypePage">
+                    <span class="glyphicon glyphicon-registration-mark"></span> Register</a>
+                    </li>
+                    <li ng-if="loggedIn && isClientType()">
+                    <a ui-sref="app.client({id: userId})">{{username}}</a>
+                    </li>
+                    <li ng-if="loggedIn && isContractorType()">
+                    <a ui-sref="app.contractor({id: userId})">{{username}}</a>
+                    </li>
+                    <li ng-if="loggedIn">
+                    <a ng-click="logOut()">
+                    <span class="glyphicon glyphicon-log-in"></span> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>      

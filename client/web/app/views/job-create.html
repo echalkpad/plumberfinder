@@ -1,0 +1,23 @@
+    <div class="ngdialog-message">
+        <div class="">
+            <h3>Create a job </h3>
+        </div>
+        <div class="">&nbsp;</div>
+        <div class="">
+            <form name="createJobForm" ng-submit="doCreateJob()">
+                <div class="form-group">
+                    <label class="sr-only" for="name">Title</label>
+                    <input type="text" class="form-control input-sm" id="name" placeholder="Title" ng-model="job.name" required>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="description">Description</label>
+                    <textarea class="form-control input-sm" id="description" placeholder="Description" ng-model="job.description" required></textarea>
+                </div>
+
+                <input type="hidden" ng-model="job.clientId">
+
+                <button type="submit" class="btn btn-info btn-sm" ng-disabled="createJobForm.$invalid">Create</button>
+                <button type="button" class="btn btn-default btn-sm" ng-click=closeThisDialog("Cancel")>Cancel</button>
+            </form>
+        </div>
+    </div>

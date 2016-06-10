@@ -1,0 +1,87 @@
+    <div class="ngdialog-message">
+        <div class="">
+            <h3>Give a review</h3>
+        </div>
+        <div class="">&nbsp;</div>
+        <div class="">
+            <form name="reviewForm" ng-submit="doCreateReview()">
+                <div class="form-group row">
+                    <label class="col-sm-5 control-label">Private evaluation</label>
+                    <div class="col-sm-7">
+                        <label class="radio-inline">
+                            <input type="radio" name="privateRating" ng-model="review.privateRating"
+                             id="rating1" value=1> 1
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="privateRating" ng-model="review.privateRating"
+                             id="rating2" value=2> 2
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="privateRating" ng-model="review.privateRating"
+                             id="rating3" value=3> 3
+                        </label>
+                         <label class="radio-inline">
+                            <input type="radio" name="privateRating" ng-model="review.privateRating"
+                             id="rating4" value=4> 4
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="privateRating" ng-model="review.privateRating"
+                             id="rating5" value=5 checked> 5
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="privateRating" ng-model="review.privateRating"
+                             id="rating6" value=6> 6
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="privateRating" ng-model="review.privateRating"
+                             id="rating7" value=7> 7
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="privateRating" ng-model="review.privateRating"
+                             id="rating8" value=8> 8
+                        </label>
+                         <label class="radio-inline">
+                            <input type="radio" name="privateRating" ng-model="review.privateRating"
+                             id="rating9" value=9> 9
+                        </label>
+                         <label class="radio-inline">
+                            <input type="radio" name="privateRating" ng-model="review.privateRating"
+                             id="rating10" value=10 checked> 10
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-5 control-label">Public evaluation</label>
+                    <div class="col-sm-7">
+                        <label class="radio-inline">
+                            <input type="radio" name="publicRating" ng-model="review.publicRating"
+                             id="rating1" value=1> 1
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="publicRating" ng-model="review.publicRating"
+                             id="rating2" value=2> 2
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="publicRating" ng-model="review.publicRating"
+                             id="rating3" value=3> 3
+                        </label>
+                         <label class="radio-inline">
+                            <input type="radio" name="publicRating" ng-model="review.publicRating"
+                             id="rating4" value=4> 4
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="publicRating" ng-model="review.publicRating"
+                             id="rating5" value=5 checked> 5
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="description">Comment</label>
+                    <textarea class="form-control input-sm" id="description" placeholder="Comment" ng-model="review.comment" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-info btn-sm" ng-disabled="reviewForm.$invalid">Send</button>
+                <button type="button" class="btn btn-default btn-sm" ng-click=closeThisDialog("Cancel")>Cancel</button>
+            </form>
+        </div>
+    </div>

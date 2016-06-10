@@ -1,0 +1,41 @@
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a href="#">Home</a></li>
+                   <li class="active">Client Login</li>
+               </ul>
+            </div>
+        </div>
+        <div class="row row-content">
+            <div class="col-xs-12">
+                <h1 class="text-center">Client Login</h1>
+                <p class="text-center">OR <a ui-sref="app.loginContractor">Login as a contractor</a></p>                
+                <p class="text-center">
+                    <img src="images/client.png" >
+                </p>
+            </div>
+        </div>
+        <div class="row row-content">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <form name="loginForm" ng-submit="doLogin()">
+                <div class="form-group">
+                    <label class="sr-only" for="username">Email</label>
+                    <input type="text" class="form-control input-sm" id="username" placeholder="Email" ng-model="loginData.username" required>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="password">Password</label>
+                    <input type="password" class="form-control input-sm" id="password" placeholder="Password" ng-model="loginData.password" required>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="rememberMe"> Remember me
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-info btn-sm" ng-disabled="loginForm.$invalid">Login</button>              
+            </form>
+
+            </div>
+        </div>
+    </div>

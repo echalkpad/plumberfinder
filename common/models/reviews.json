@@ -1,0 +1,58 @@
+{
+  "name": "Reviews",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "privateRating": {
+      "type": "number",
+      "required": true,
+      "default": "10"
+    },
+    "publicRating": {
+      "type": "number",
+      "required": true,
+      "default": "5"
+    },
+    "comment": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "client": {
+      "type": "belongsTo",
+      "model": "Client",
+      "foreignKey": "clientId"
+    },
+    "contractor": {
+      "type": "belongsTo",
+      "model": "Contractor",
+      "foreignKey": "contractorId"
+    },
+    "job": {
+      "type": "belongsTo",
+      "model": "Job",
+      "foreignKey": "jobId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

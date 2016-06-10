@@ -1,0 +1,43 @@
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a href="#">Home</a></li>
+                   <li class="active">Jobs</li>
+               </ul>
+            </div>
+            <div class="col-xs-12">
+               <h3>Jobs</h3>
+               <hr>
+            </div>
+        </div>
+        <div class="row row-content">
+            <div class="col-xs-12">
+                <ul class="list-unstyled">
+                    <li ng-repeat="job in jobs | orderBy:'-createdAt'" ng-class="{'done-job': job.review.comment}">
+                    	<h3>{{job.name}}</h3>
+
+                    	<h4>
+                    		<a ui-sref="app.client({id: job.clientId})" ng-if="(userType == 'contractors')">{{job.client.firstname}} {{job.client.lastname}}</a>
+                    		{{job.createdAt | date:'MMM. dd, yyyy H:m'}}
+                		</h4>
+
+                    	<p>{{job.description}}</p>
+
+                    	<h4 ng-if="(userType == 'clients') && job.contractor.id">
+                    		<a ui-sref="app.contractor({id: job.contractorId})">{{job.contractor.firstname}} {{job.contractor.lastname}}</a>
+                		</h4>
+                    	<h4 ng-if="(userType == 'contractors') && (job.contractorId == userId)">
+                    		Your message:
+                		</h4>
+
+                		<blockquote ng-if="job.message">{{job.message}}</blockquote>
+
+                		<button class="btn btn-success btn-sm" ng-if="(userType == 'clients') && job.contractor.id && !job.review.comment" ng-click="giveReview(job.clientId, job.contractor.id, job.id)">Give review to contractor</button>           			
+                		<button class="btn btn-success btn-sm" ng-if="(userType == 'contractors') && job.contractorId && !job.review.comment" ng-click="giveReview(job.contractorId, job.client.id, job.id)">Give review to client</button>    
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
