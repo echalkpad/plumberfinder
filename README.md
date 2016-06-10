@@ -1,5 +1,7 @@
 # plumberFinder
 
+**Bluemix LoopBack Server + AngularJS app**
+
 A service for quick search and call a plumber to solve household problems
 
 ## Capstone Project
